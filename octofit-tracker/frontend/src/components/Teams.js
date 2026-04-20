@@ -21,14 +21,31 @@ const Teams = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Teams</h2>
-      <ul className="list-group">
-        {teams.map((team, idx) => (
-          <li key={idx} className="list-group-item">
-            {team.name} - Members: {team.members && team.members.join(', ')}
-          </li>
-        ))}
-      </ul>
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title mb-4">Teams</h2>
+          <div className="table-responsive">
+            <table className="table table-striped table-bordered">
+              <thead className="table-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Team Name</th>
+                  <th>Members</th>
+                </tr>
+              </thead>
+              <tbody>
+                {teams.map((team, idx) => (
+                  <tr key={idx}>
+                    <td>{idx + 1}</td>
+                    <td>{team.name}</td>
+                    <td>{team.members && team.members.join(', ')}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
